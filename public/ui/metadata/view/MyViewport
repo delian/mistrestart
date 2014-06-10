@@ -1,0 +1,94 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MyViewport",
+        "layout": "fit"
+    },
+    "designerId": "6bcf7a63-05e2-4c36-b499-0fc62ecb0184",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "middle",
+                "container|pack": "center",
+                "layout": "hbox"
+            },
+            "designerId": "f2c98f4e-a024-4ec5-a2fd-71fbb4e8fc73",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "container|pack": "center",
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "designerId": "09033e0c-9e80-415a-bad1-da7f57fcd4ca",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxHeight": null,
+                                "maxWidth": null,
+                                "minHeight": 150,
+                                "text": "Restart MIST",
+                                "width": 150
+                            },
+                            "designerId": "5c195416-8d78-403c-bb2d-43dcc5981377",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "Ext.Ajax.request({",
+                                            "    method: 'GET',",
+                                            "    url: '../rest/mistRestart',",
+                                            "    success: function() {",
+                                            "        Ext.MessageBox.alert('Restart','Restart is initiated! Please wait couple of minutes!');",
+                                            "    },",
+                                            "    failure: function() {",
+                                            "        Ext.MessageBox.alert('Restart','Error! No restart has happened!');",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "a2e12326-493c-4a53-8db9-96b3d23ce2c7"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

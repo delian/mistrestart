@@ -14,4 +14,11 @@ router.get('/rest/mistRestart',function(req,res) {
     res.send(200,'Restart is initiated!');
 });
 
+router.get('/rest/mistRestartFast',function(req,res) {
+    exec('/sbin/initctl restart mist',function(err,stdout,stderr) {
+        console.log('Script is executed', err,stdout,stderr);
+    });
+    res.send(200,'Restart is initiated!');
+});
+
 module.exports = router;

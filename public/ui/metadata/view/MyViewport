@@ -24,6 +24,7 @@
                 "container|pack": "center",
                 "layout": "hbox"
             },
+            "name": "MyContainer",
             "designerId": "f2c98f4e-a024-4ec5-a2fd-71fbb4e8fc73",
             "cn": [
                 {
@@ -39,6 +40,7 @@
                         "layout": "vbox",
                         "layout|flex": 1
                     },
+                    "name": "MyContainer1",
                     "designerId": "09033e0c-9e80-415a-bad1-da7f57fcd4ca",
                     "cn": [
                         {
@@ -52,10 +54,11 @@
                                 "layout|flex": 1,
                                 "maxHeight": null,
                                 "maxWidth": null,
-                                "minHeight": 150,
-                                "text": "Restart MIST",
+                                "minHeight": 100,
+                                "text": "Restart MIST with Logs",
                                 "width": 150
                             },
+                            "name": "MyButton",
                             "designerId": "5c195416-8d78-403c-bb2d-43dcc5981377",
                             "cn": [
                                 {
@@ -82,7 +85,55 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
+                                    "name": "onButtonClick",
                                     "designerId": "a2e12326-493c-4a53-8db9-96b3d23ce2c7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1,
+                                "maxHeight": null,
+                                "maxWidth": null,
+                                "minHeight": 100,
+                                "text": "Fast MIST restart",
+                                "width": 150
+                            },
+                            "name": "MyButton1",
+                            "designerId": "5226496d-e325-4f53-971c-330bf2b039b7",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
+                                        "implHandler": [
+                                            "Ext.Ajax.request({",
+                                            "    method: 'GET',",
+                                            "    url: '../rest/mistRestartFast',",
+                                            "    success: function() {",
+                                            "        Ext.MessageBox.alert('Restart','Restart is initiated! Please wait couple of minutes!');",
+                                            "    },",
+                                            "    failure: function() {",
+                                            "        Ext.MessageBox.alert('Restart','Error! No restart has happened!');",
+                                            "    }",
+                                            "});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick1",
+                                    "designerId": "7d146c17-7d84-4bb5-b967-82d4d53b6f64"
                                 }
                             ]
                         }
